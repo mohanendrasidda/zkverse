@@ -5,7 +5,7 @@ import { WagmiProvider, http } from "wagmi";
 import { mainnet, goerli, polygonMumbai } from "wagmi/chains"
 import { ReactNode } from "react"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
+import Navbar from "@/components/Navbar";
 
 const config = getDefaultConfig({
   appName: 'ZKVerse',
@@ -24,6 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (<html lang="en"><body>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
+        <Navbar></Navbar>
         <RainbowKitProvider>{children}</RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
